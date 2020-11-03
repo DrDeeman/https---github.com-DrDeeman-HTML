@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link href="styles.css" rel="stylesheet" type="text/css" />
+
+  <script>
+    let summar = 0;
+
+    function sum_write(t) {
+      document.getElementsByClassName("count_pay")[0].innerHTML = ++summar;
+      sp.options[sp.options.length] = new Option(mas_card[mas_num[t]].name, mas_num[t]);
+    }
+    let mas_num = [];
+    let mas_card = [
+      { img: "image/x.jpg", name: "Fantastic Four", count_from: 6, count_to: 4 }, { img: "image/b.jpg", name: "Deadpool", count_from: 7, "count_to": 5 }, { img: "image/c.jpg", name: "Superman", count_from: 8, count_to: 6 }, { img: "image/v.jpg", name: "Batman", count_from: 5, count_to: 4 }, { img: "image/z.jpg", name: "spiderman", count_from: 7, count_to: 4 }
+    ];
+    let min = Math.ceil(0);
+    let max = Math.floor(4);
+    let r_z;
+    let mas_index = [];
+    //function For_Date(){
+    //let d = new Date();
+    //let sd = document.getElementById("ss");
+    //let ds = "Регистрация. Сегодня:"+d.getDate()+' '+mas_Month[d.getMonth()]+' '+d.getFullYear()+' '+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+    //sd.textContent = ds;
+    //};
+
+
+    function over_Move(ob) {
+      ob.style.opacity = "1";
+    };
+
+    function out_Move(ob) {
+      ob.style.opacity = "0.1";
+    };
+
+    function rand(id, d_id) {
+      r_z = Math.floor(Math.random() * (max - min)) + min;
+      if (mas_index.indexOf(r_z) != -1) rand(id, d_id); else {
+        mas_index.push(r_z);
+        id.src = mas_card[r_z].img;
+        d_id.innerHTML = '<p>Цена товара раньше: ' + mas_card[r_z].count_from + '$</p><p>Цена сейчас: ' + mas_card[r_z].count_to + '$</p>';
+        mas_num.push(r_z);
+      }
+    }
+    function deletecom() {
+      let ch = 0;
+      for (let i = 0; i < sp.options.length; i++) {
+        //если опция выбрана - добавим её в массив
+        if (sp.options[i].selected) {
+          sp.removeChild(sp.options[i]);
+          ch++;
+        }
+      }
+      document.getElementsByClassName("count_pay")[0].innerHTML = document.getElementsByClassName("count_pay")[0].innerText - ch;
+      if(sp.options.length==0)sp.style.display=deleter.style.display='none';
+    }
+
+
+  </script>
+
+
+
+
+</head>
+
+<body>
+  <header class="fix">
+
+
+    <div class="logo">
+      <img src="image/marvel.jpg" width="65px" />
+      <h1><span class="letter">C</span>omics<span class="letter">T</span>rip</h1><img src="image/dc.png" width="50px" />
+    </div>
+
+    <div class="reg">
+      <a href="">Вход</a>/<a href="">Регистрация</a>
+    </div>
+
+    <div class="pay-cart">
+      <button onclick="if(sp.style.display=='block')
+sp.style.display=deleter.style.display='none'; 
+else if(sp.options.length!=0)
+sp.style.display=deleter.style.display='block';">
+        <div class="count_pay">0</div><img src="image/cart.svg" />
+      </button><br>
+
+      <select id="sp" multiple></select>
+      <button id="deleter" onclick="deletecom()" />Удалить</button>
+    </div>
+  </header>
+  <nav width="100%" height="50px">
+    <b>
+      <ul>
+        <li class="point_menu">Главная<img src="image/triangle.png" width="20px" height="20px" />
+          <ul class="podmenu">
+            <li>Новости</li>
+            <li>Интересное</li>
+          </ul>
+        </li>
+        <li class="point_menu">Магазин<img src="image/triangle.png" width="20px" height="20px" />
+          <ul class="podmenu">
+            <li>Каталог</li>
+            <li>Акции</li>
+          </ul>
+        </li>
+        <li class="point_menu">О нас<img src="image/triangle.png" width="20px" height="20px" />
+          <ul class="podmenu">
+            <li>Контакты</li>
+            <li>Справка о сайте</li>
+          </ul>
+        </li>
+    </b>
+  </nav>
+  <section>
+    <div class="wrapper-video">
+      <video align="center" autoplay="autoplay" loop="loop" muted="muted">
+        <source src="q.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+      </video>
+    </div>
+  </section>
+  <section>
+
+    <div class="tables">
+      <div width="100%">
+        <marquee behavior="alternate">
+          <h3>Последние новости</h3>
+        </marquee>
+      </div>
+
+      <div class="buttons">
+        <button class="left">
+          <<< /button>
+            <button class="right">>></button>
+      </div>
+      <div class="news_line"><img src="image/avengers.jpg" width="400px" height="500px" /></div>
+      <div class="news_block"><img src="image/avengers.jpg" width="400px" height="500px" /></div><br>
+      <div class="news_line"><img src="image/avengers.jpg" width="400px" height="500px" /></div>
+      <div class="news_block"><img src="image/avengers.jpg" width="400px" height="500px" /></div>
+    </div>
+
+
+  </section>
+
+  <section class="count">
+
+    <div class="tovar">
+      <img id="id1" width="100%" height="80%" />
+      <button class="pay" onclick="sum_write('0')" align="center"><img src="image/cart.svg" width="24px"
+          height="24px" /></button>
+      <div align="center" id="d1">
+
+      </div>
+    </div>
+    <script>rand(id1, d1)</script>
+    <div class="tovar glass">
+      <img id="id2" width="100%" height="80%" />
+      <button class="pay" onclick="sum_write(1)" align="center"><img src="image/cart.svg" width="24px"
+          height="24px" /></button>
+      <div align="center" id="d2">
+
+      </div>
+    </div>
+    <script>rand(id2, d2)</script>
+    <div class="tovar glass">
+      <img id="id3" width="100%" height="80%" />
+      <button class="pay" onclick="sum_write(2)" align="center"><img src="image/cart.svg" width="24px"
+          height="24px" /></button>
+      <div align="center" id="d3">
+
+      </div>
+    </div>
+    <script>rand(id3, d3)</script>
+    <footer>
+      <h2>
+        <font color="white">Акционные предложения</font>
+      </h2><button class="b1">Узнать больше</button>
+    </footer>
+  </section>
+  <footer class="foot">
+    <h3>Позвоните нам!</h3><img src="image/tel.png" width:"30px" height="30px" />
+  </footer>
+  <script defer>
+//let mas_Month = [
+//"января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"
+//];
+//setTimeout(For_Date,0);
+//setInterval(For_Date,1000);
+
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,255 @@
+body {
+	min-width: 900px;
+	height: 1000px;
+	background-repeat: no-repeat;
+	background-color: slategrey;
+	background-image: url("image/fon.png");
+	background-attachment: fixed;
+	background-size: 100% 100%;
+}
+
+h1 {
+	color: red;
+	display: inline;
+}
+
+h2 {
+	display: inline-block;
+}
+
+fieldset {
+	float: right;
+	width: 30%;
+	border: 1px solid gray;
+}
+
+legend {
+	border: 1px solid gray;
+	padding: 2px;
+	width: 90%;
+	text-align: center;
+}
+
+header {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	padding-bottom: 5px;
+	width: 100%;
+	height: 70px;
+	background-color: white;
+	border-bottom: 2px solid black;
+	z-index: 10;
+}
+
+.pay-cart {
+	float: right;
+	margin-right: 70px;
+	margin-top: 10px;
+	width: 50px;
+	height: 50px;
+}
+
+select {
+	display: none;
+}
+
+#deleter {
+	display: none;
+	height: 30px;
+	width: 70px;
+}
+
+.pay-cart button, .pay-cart button img {
+	width: 100%;
+	height: 100%;
+}
+
+.pay-cart .count_pay {
+	position: absolute;
+	margin-left: 30px;
+	margin-top: -10px;
+	border: 1px solid black;
+	background-color: green;
+	border-radius: 10px;
+	width: 20px;
+	height: 20px;
+}
+
+h1 {
+	color: red;
+	display: inline;
+}
+
+.logo {
+	height: 70px;
+	width: 40%;
+	float: left;
+}
+
+.reg {
+	float: right;
+	margin-top: 20px;
+	margin-right: 40px;
+}
+
+.block {
+	margin-top: 15px;
+}
+
+.letter {
+	font-size: 150%;
+	font-family: Verdana, serif;
+}
+
+.lablef {
+	float: right;
+	clear: both;
+}
+
+.radiof {
+	width: 100%;
+	clear: both;
+}
+
+input[type="submit"] {
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 45%;
+}
+
+.buttons {
+	position: absolute;
+	width: 100%;
+	margin-top: 40%;
+}
+
+.tables {
+	height: 1150px;
+	margin-top: 100px;
+}
+
+.left, .right {
+	position: relative;
+	width: 30px;
+	height: 100px;
+}
+
+.tables .left {
+	left: 0px;
+}
+
+.tables .right {
+	float: right;
+	right: 15px;
+}
+
+.news_line {
+	display: inline;
+	width: 49%;
+	float: left;
+}
+
+.news_block {
+	display: inline-block;
+	width: 49%;
+	float: right;
+}
+
+footer {
+	position: relative;
+	background-color: black;
+	top: 100%;
+	width: auto;
+	;
+	height: 5%;
+	text-align: center;
+}
+
+.foot {
+	text-align: right;
+}
+
+footer h3 {
+	color: white;
+	display: inline;
+}
+
+.wrapper-video {
+	max-width: 100%;
+	height: 400px;
+	margin-top: 400px;
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+.wrapper-video video {
+	width: 100%;
+	height: 100%;
+}
+
+nav {
+	position: absolute;
+	top: 180px;
+	left: 0px;
+	z-index: 8;
+	width: 100%;
+	border-bottom: 2px solid black;
+}
+
+nav ul .point_menu {
+	position: relative;
+	float: left;
+	display: inline;
+	margin-right: 50px;
+	font-size: 25px;
+	cursor: pointer;
+}
+
+nav ul li .podmenu {
+	position: absolute;
+	display: none;
+}
+
+nav ul .point_menu:hover>.podmenu {
+	display: block;
+	margin-left: -50px;
+}
+
+nav ul .point_menu:hover>img {
+	transform: rotate(180deg);
+}
+
+nav ul .point_menu:hover>.podmenu li {
+	list-style-type: none;
+	border: 1px solid black;
+	background-color: transparent;
+}
+
+.tovar {
+	display: inline-block;
+	width: 25%;
+	height: 500px;
+	border: 1px solid black;
+	margin: 50px 3%;
+	background-color: white;
+}
+
+.pay {
+	width: 30%;
+	margin-top: -8px;
+	height: 21%;
+	float: right;
+	background-color: green;
+}
+
+.count {
+	background-color: rgba(0, 120, 201, 0.7);
+	width: 95%;
+	margin: 50px 2%;
+}
+
+.b1 {
+	float: right;
+	height: 50px;
+	width: 10%;
+}
