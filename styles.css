@@ -2,7 +2,6 @@ body {
 	min-width: 900px;
 	height: 1000px;
 	background-repeat: no-repeat;
-	background-color: slategrey;
 	background-image: url("image/fon.png");
 	background-attachment: fixed;
 	background-size: 100% 100%;
@@ -50,16 +49,6 @@ header {
 	height: 50px;
 }
 
-select {
-	display: none;
-}
-
-#deleter {
-	display: none;
-	height: 30px;
-	width: 70px;
-}
-
 .pay-cart button, .pay-cart button img {
 	width: 100%;
 	height: 100%;
@@ -74,6 +63,44 @@ select {
 	border-radius: 10px;
 	width: 20px;
 	height: 20px;
+}
+
+nav {
+	position: absolute;
+	top: 180px;
+	left: 0px;
+	z-index: 8;
+	width: 100%;
+	border-bottom: 2px solid black;
+}
+
+nav ul .point_menu {
+	position: relative;
+	float: left;
+	display: inline;
+	margin-right: 50px;
+	font-size: 25px;
+	cursor: pointer;
+}
+
+nav ul li .podmenu {
+	position: absolute;
+	display: none;
+}
+
+nav ul .point_menu:hover>.podmenu {
+	display: block;
+	margin-left: -50px;
+}
+
+nav ul .point_menu:hover>img {
+	transform: rotate(180deg);
+}
+
+nav ul .point_menu:hover>.podmenu li {
+	list-style-type: none;
+	border: 1px solid black;
+	background-color: transparent;
 }
 
 h1 {
@@ -121,25 +148,80 @@ input[type="submit"] {
 .buttons {
 	position: absolute;
 	width: 100%;
-	margin-top: 40%;
+	margin-top: 22%;
 }
-
-.tables {
-	height: 1150px;
+.buttons button{
+	opacity:0.5;
+}
+.layer{
+	background-color:black;
+	z-index:15;
+	opacity:0.8;
+	display:none;
+	position:fixed;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:100%;
+}
+.articles {
+	height: 700px;
 	margin-top: 100px;
 }
 
+.popup{
+	position:fixed;
+	left:25%;
+	top:25%;
+	width:50%;
+	height:40%;
+	display:none;
+	border:1px solid black;
+	background-color:white;
+	text-align:center;
+	border-radius:10px;
+	z-index:20;
+    min-height:100px;
+	overflow-y:auto;
+	overflow-x:hidden;
+}
+.popup .close{
+	float:right;
+	font-size:28px;
+	margin-top:-5px;
+	transform:rotate(45deg);
+	cursor: pointer;
+}
+.popup img{
+	float:left;
+	display:inline;
+}
+.cart_product{
+	float:left;
+	margin-left:5px;
+	text-align:left;
+	width:80%;
+}
+.cart_product button{
+	float:right;
+}
+.create_div{
+border:1px solid black;
+width:100%;
+height:120px;
+background-color:white;
+}
 .left, .right {
 	position: relative;
 	width: 30px;
-	height: 100px;
+	height: 50px;
 }
 
-.tables .left {
+.articles .button_left {
 	left: 0px;
 }
 
-.tables .right {
+.articles .button_right {
 	float: right;
 	right: 15px;
 }
@@ -147,15 +229,30 @@ input[type="submit"] {
 .news_line {
 	display: inline;
 	width: 49%;
+	height:300px;
 	float: left;
+	border:2px solid black;
+	margin-bottom:5px;
 }
 
 .news_block {
 	display: inline-block;
 	width: 49%;
 	float: right;
+	height:300px;
+	border:2px solid black;
+	margin-bottom:5px;
 }
 
+.news-line img, .news_block img{
+	display:inline;
+}
+.stat{
+	float:right;
+	width:50%;
+	text-align:justify;
+	margin-right:10px;
+}
 footer {
 	position: relative;
 	background-color: black;
@@ -187,45 +284,9 @@ footer h3 {
 	height: 100%;
 }
 
-nav {
-	position: absolute;
-	top: 180px;
-	left: 0px;
-	z-index: 8;
-	width: 100%;
-	border-bottom: 2px solid black;
-}
 
-nav ul .point_menu {
-	position: relative;
-	float: left;
-	display: inline;
-	margin-right: 50px;
-	font-size: 25px;
-	cursor: pointer;
-}
 
-nav ul li .podmenu {
-	position: absolute;
-	display: none;
-}
-
-nav ul .point_menu:hover>.podmenu {
-	display: block;
-	margin-left: -50px;
-}
-
-nav ul .point_menu:hover>img {
-	transform: rotate(180deg);
-}
-
-nav ul .point_menu:hover>.podmenu li {
-	list-style-type: none;
-	border: 1px solid black;
-	background-color: transparent;
-}
-
-.tovar {
+.product {
 	display: inline-block;
 	width: 25%;
 	height: 500px;

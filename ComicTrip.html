@@ -7,11 +7,7 @@
 
   <script>
     let summar = 0;
-
-    function sum_write(t) {
-      document.getElementsByClassName("count_pay")[0].innerHTML = ++summar;
-      sp.options[sp.options.length] = new Option(mas_card[mas_num[t]].name, mas_num[t]);
-    }
+		//Данные переменные являются хранилищем индексов карточек и собственно, самих карточек
     let mas_num = [];
     let mas_card = [
       { img: "image/x.jpg", name: "Fantastic Four", count_from: 6, count_to: 4 }, { img: "image/b.jpg", name: "Deadpool", count_from: 7, "count_to": 5 }, { img: "image/c.jpg", name: "Superman", count_from: 8, count_to: 6 }, { img: "image/v.jpg", name: "Batman", count_from: 5, count_to: 4 }, { img: "image/z.jpg", name: "spiderman", count_from: 7, count_to: 4 }
@@ -20,6 +16,19 @@
     let max = Math.floor(4);
     let r_z;
     let mas_index = [];
+	//Эта функция отвечает за динамическое добавление товара в корзину
+    function sum_write(t) {
+      document.getElementsByClassName("count_pay")[0].innerHTML = ++summar;
+	   let div = document.createElement('div');
+	  div.className = 'create_div';
+	  let button = document.createElement('button');
+	  button.onclick = function(){this.parentElement.remove(); summar--; document.getElementsByClassName("count_pay")[0].innerHTML = summar;};
+	  button.innerHTML = 'Удалить';
+	   div.innerHTML = "<img src="+mas_card[mas_num[t]].img+" height='100%' width='15%'/><div class='cart_product'><p><b>Наименование товара</b>:комикс "+mas_card[mas_num[t]].name+"</p><p><b>Цена товара</b>:"+mas_card[mas_num[t]].count_to+"</p></div>";
+	   div.appendChild(button);
+	  document.getElementsByClassName('popup')[0].appendChild(div);  
+    }
+
     //function For_Date(){
     //let d = new Date();
     //let sd = document.getElementById("ss");
@@ -28,14 +37,7 @@
     //};
 
 
-    function over_Move(ob) {
-      ob.style.opacity = "1";
-    };
-
-    function out_Move(ob) {
-      ob.style.opacity = "0.1";
-    };
-
+ //Эта функция отвечает за рандомную генерацию товара из списка
     function rand(id, d_id) {
       r_z = Math.floor(Math.random() * (max - min)) + min;
       if (mas_index.indexOf(r_z) != -1) rand(id, d_id); else {
@@ -45,28 +47,19 @@
         mas_num.push(r_z);
       }
     }
-    function deletecom() {
-      let ch = 0;
-      for (let i = 0; i < sp.options.length; i++) {
-        //если опция выбрана - добавим её в массив
-        if (sp.options[i].selected) {
-          sp.removeChild(sp.options[i]);
-          ch++;
-        }
-      }
-      document.getElementsByClassName("count_pay")[0].innerHTML = document.getElementsByClassName("count_pay")[0].innerText - ch;
-      if(sp.options.length==0)sp.style.display=deleter.style.display='none';
-    }
-
-
+  
   </script>
-
-
-
-
 </head>
 
 <body>
+      
+<div class="layer"></div>
+
+ <div class="popup">
+  <p class="close" onclick="document.getElementsByClassName('popup')[0].style.display=document.getElementsByClassName('layer')[0].style.display='none';">+</p>
+<h4>Ваши товары</h4>
+</div>
+
   <header class="fix">
 
 
@@ -75,22 +68,22 @@
       <h1><span class="letter">C</span>omics<span class="letter">T</span>rip</h1><img src="image/dc.png" width="50px" />
     </div>
 
+
     <div class="reg">
       <a href="">Вход</a>/<a href="">Регистрация</a>
     </div>
 
+
     <div class="pay-cart">
-      <button onclick="if(sp.style.display=='block')
-sp.style.display=deleter.style.display='none'; 
-else if(sp.options.length!=0)
-sp.style.display=deleter.style.display='block';">
+      <button onclick="if(summar!=0) document.getElementsByClassName('popup')[0].style.display=document.getElementsByClassName('layer')[0].style.display='block';">
         <div class="count_pay">0</div><img src="image/cart.svg" />
       </button><br>
-
-      <select id="sp" multiple></select>
-      <button id="deleter" onclick="deletecom()" />Удалить</button>
     </div>
   </header>
+  
+ 
+  
+
   <nav width="100%" height="50px">
     <b>
       <ul>
@@ -114,6 +107,8 @@ sp.style.display=deleter.style.display='block';">
         </li>
     </b>
   </nav>
+  
+  
   <section>
     <div class="wrapper-video">
       <video align="center" autoplay="autoplay" loop="loop" muted="muted">
@@ -123,7 +118,7 @@ sp.style.display=deleter.style.display='block';">
   </section>
   <section>
 
-    <div class="tables">
+    <div class="articles">
       <div width="100%">
         <marquee behavior="alternate">
           <h3>Последние новости</h3>
@@ -131,14 +126,38 @@ sp.style.display=deleter.style.display='block';">
       </div>
 
       <div class="buttons">
-        <button class="left">
-          <<< /button>
-            <button class="right">>></button>
+        <button class="button_left"><<</button>
+            <button class="button_right">>></button>
       </div>
-      <div class="news_line"><img src="image/avengers.jpg" width="400px" height="500px" /></div>
-      <div class="news_block"><img src="image/avengers.jpg" width="400px" height="500px" /></div><br>
-      <div class="news_line"><img src="image/avengers.jpg" width="400px" height="500px" /></div>
-      <div class="news_block"><img src="image/avengers.jpg" width="400px" height="500px" /></div>
+	  
+      <div class="news_line"><img src="image/avengers.jpg"  height="100%"/>
+	  <div class="stat">
+	  <h4>Мстители - финал:конец истории?</h4>
+	  <p>Недавно вышел фильм мстители: финал, который был, безусловно ожидаемый, но был принят по разному. Одно нельзя отрицать - фильм продемонстрировал огромный размах мультивселенной. Для большей информации Вы можете прочитать статью о фильме.</p>
+	  </div>
+	  </div>
+	  
+      <div class="news_block"><img src="image/marvel avengers.jpg"  height="100%" />
+	  <div class="stat">
+	  <h4>Марвел:мстители - игра про баги</h4>
+	  <p>Ожидаемая игра по мстителям, наконец, вышла. Но ее оценки были, мягко говоря, не очень. Что же так разгневало критиков?</p>
+	  </div>
+	  </div>
+	  
+      <div class="news_line"><img src="image/captain America.jpg"  height="100%" />
+	  <div class="stat">
+	  <h4>Новый капитан Америка может появится в Докторе Стрэндж 2</h4>
+	  <p>(В статье присутствуют спойлеры) Тех, кто посмотрел мстители: финал, интересует дальнейшая судьба капитана Америки. Планы Марвел на него Вы можете узнать в статье.</p>
+	  </div>
+	  </div>
+	  
+      <div class="news_block"><img src="image/spider.webp"  height="100%" />
+	  <div class="stat">
+	  <h4>Насколько Ты фанат Паучка?</h4>
+	  <p>В новом Человеке-пауке на PS4 оказалось множество отсылок на первые комиксы о супергерое. Проверь себя, нашел ли ты их все?</p>
+	  </div>
+	  </div>
+	  
     </div>
 
 
@@ -146,7 +165,7 @@ sp.style.display=deleter.style.display='block';">
 
   <section class="count">
 
-    <div class="tovar">
+    <div class="product">
       <img id="id1" width="100%" height="80%" />
       <button class="pay" onclick="sum_write('0')" align="center"><img src="image/cart.svg" width="24px"
           height="24px" /></button>
@@ -155,7 +174,7 @@ sp.style.display=deleter.style.display='block';">
       </div>
     </div>
     <script>rand(id1, d1)</script>
-    <div class="tovar glass">
+    <div class="product">
       <img id="id2" width="100%" height="80%" />
       <button class="pay" onclick="sum_write(1)" align="center"><img src="image/cart.svg" width="24px"
           height="24px" /></button>
@@ -164,7 +183,7 @@ sp.style.display=deleter.style.display='block';">
       </div>
     </div>
     <script>rand(id2, d2)</script>
-    <div class="tovar glass">
+    <div class="product">
       <img id="id3" width="100%" height="80%" />
       <button class="pay" onclick="sum_write(2)" align="center"><img src="image/cart.svg" width="24px"
           height="24px" /></button>
@@ -182,6 +201,7 @@ sp.style.display=deleter.style.display='block';">
   <footer class="foot">
     <h3>Позвоните нам!</h3><img src="image/tel.png" width:"30px" height="30px" />
   </footer>
+
   <script defer>
 //let mas_Month = [
 //"января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"
