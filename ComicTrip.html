@@ -47,15 +47,44 @@
         mas_num.push(r_z);
       }
     }
+	
+	function visual_garbage(){
+	document.getElementsByClassName('layer')[0].style.display = document.getElementsByClassName('loadbar')[0].style.display = 'block';
+	let load = document.getElementsByClassName('loadbar')[0];
+	let timer=0;
+	let timer_loadbar = setInterval(()=>{
+	if(load.value==load.max)load.value=10;
+	else load.value++;
+	timer+=50;
+	},50);
+		let promise = new Promise(function(resolve,reject){
+	 setTimeout(()=>{
+	 clearInterval(timer_loadbar);
+	 if(summar>0)resolve("Товары есть");else reject(new Error("Товаров нет"));
+	 } ,10000);
+	 });
+	 promise.finally(
+	 ()=>load.style.display='none'
+	 )
+promise.then(
+	result=>document.getElementsByClassName('popup')[0].style.display='block',
+	error=>{alert(error);document.getElementsByClassName('layer')[0].style.display='none'; load.value=0;}
+	);
+	
+	
+	
+	}
+	
   
   </script>
 </head>
 
 <body>
-      
-<div class="layer"></div>
 
+<div class="layer"></div>
+<progress value='0' max='100' class="loadbar"></progress>
  <div class="popup">
+
   <p class="close" onclick="document.getElementsByClassName('popup')[0].style.display=document.getElementsByClassName('layer')[0].style.display='none';">+</p>
 <h4>Ваши товары</h4>
 </div>
@@ -105,6 +134,7 @@
             <li>Справка о сайте</li>
           </ul>
         </li>
+		</ul>
     </b>
   </nav>
   
@@ -195,21 +225,14 @@
     <footer>
       <h2>
         <font color="white">Акционные предложения</font>
-      </h2><button class="b1">Узнать больше</button>
+      </h2><button class="b1" onclick="visual_garbage();">Узнать больше</button>
     </footer>
   </section>
   <footer class="foot">
-    <h3>Позвоните нам!</h3><img src="image/tel.png" width:"30px" height="30px" />
+    <h3>Позвоните нам!</h3><img src="image/tel.png" width="30px" height="30px" />
   </footer>
 
-  <script defer>
-//let mas_Month = [
-//"января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"
-//];
-//setTimeout(For_Date,0);
-//setInterval(For_Date,1000);
 
-  </script>
 
 
 </body>

@@ -314,3 +314,22 @@ footer h3 {
 	height: 50px;
 	width: 10%;
 }
+
+.loadbar{
+	position:fixed;
+	z-index:50;
+	display:none;
+	width:30%;
+	height:20px;
+	top:30%;
+	left:35%;
+	background-color:white;
+	border:1px solid black;
+	border-radius:40px;
+}
+.loadbar::-webkit-progress-value{
+	border-radius:40px;
+}
+progress::-moz-progress-bar {
+	border-radius:40px;
+}
