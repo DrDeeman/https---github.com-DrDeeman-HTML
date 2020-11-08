@@ -1,15 +1,10 @@
 body {
-	min-width: 900px;
+	min-width: 500px;
 	height: 1000px;
 	background-repeat: no-repeat;
 	background-image: url("image/fon.png");
 	background-attachment: fixed;
 	background-size: 100% 100%;
-}
-
-h1 {
-	color: red;
-	display: inline;
 }
 
 h2 {
@@ -41,11 +36,35 @@ header {
 	z-index: 10;
 }
 
+.head {
+	display: flex;
+	width: 100%;
+	height: 100%;
+}
+
+.logo {
+	display: flex;
+	justify-content: flex-start;
+	height: 70px;
+	flex-basis: 80%;
+}
+
+.logo h1 {
+	color: red;
+	display: inline;
+	align-self: center;
+}
+
+.logo img {
+	width: 80px;
+}
+
 .pay-cart {
-	float: right;
 	margin-right: 70px;
 	margin-top: 10px;
 	width: 50px;
+	flex-grow: 0;
+	flex-shrink: 0;
 	height: 50px;
 }
 
@@ -72,6 +91,7 @@ nav {
 	z-index: 8;
 	width: 100%;
 	border-bottom: 2px solid black;
+	min-width: 700px;
 }
 
 nav ul .point_menu {
@@ -108,12 +128,6 @@ h1 {
 	display: inline;
 }
 
-.logo {
-	height: 70px;
-	width: 40%;
-	float: left;
-}
-
 .reg {
 	float: right;
 	margin-top: 20px;
@@ -148,7 +162,7 @@ input[type="submit"] {
 .buttons {
 	position: absolute;
 	width: 100%;
-	margin-top: 22%;
+	margin-top: 5%;
 }
 
 .buttons button {
@@ -168,8 +182,38 @@ input[type="submit"] {
 }
 
 .articles {
-	height: 700px;
+	display: flex;
 	margin-top: 100px;
+	flex-wrap: wrap;
+	align-items: center;
+	border: 1px solid black;
+	justify-content: center;
+}
+
+.marq {
+	flex-basis: 100%;
+}
+
+.news_block {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	flex-basis: 49%;
+	height: 50%;
+	margin-bottom: 10px;
+	height: 45%;
+	min-height: 175px;
+	min-width: 450px;
+}
+
+.news_block img {
+	display: inline;
+	flex-basis: 35%;
+}
+
+.stat {
+	flex-basis: 60%;
+	text-align: justify;
 }
 
 .popup {
@@ -235,35 +279,6 @@ input[type="submit"] {
 	right: 15px;
 }
 
-.news_line {
-	display: inline;
-	width: 49%;
-	height: 300px;
-	float: left;
-	border: 2px solid black;
-	margin-bottom: 5px;
-}
-
-.news_block {
-	display: inline-block;
-	width: 49%;
-	float: right;
-	height: 300px;
-	border: 2px solid black;
-	margin-bottom: 5px;
-}
-
-.news-line img, .news_block img {
-	display: inline;
-}
-
-.stat {
-	float: right;
-	width: 50%;
-	text-align: justify;
-	margin-right: 10px;
-}
-
 footer {
 	position: relative;
 	background-color: black;
@@ -296,12 +311,28 @@ footer h3 {
 }
 
 .product {
-	display: inline-block;
-	width: 25%;
+	flex-basis: 25%;
 	height: 500px;
 	border: 1px solid black;
-	margin: 50px 3%;
 	background-color: white;
+	min-width: 250px;
+}
+
+.product_foot {
+	display: flex;
+	flex-basis: 100%;
+	background-color: black;
+}
+
+.product_foot h2 {
+	flex-basis: 90%;
+	text-align: center;
+}
+
+.product_foot button {
+	flex-basis: 10%;
+	min-width: 100px;
+	align-self: center;
 }
 
 .pay {
@@ -313,9 +344,12 @@ footer h3 {
 }
 
 .count {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 	background-color: rgba(0, 120, 201, 0.7);
 	width: 95%;
-	margin: 50px 2%;
+	margin: 100px 2%;
 }
 
 .b1 {
