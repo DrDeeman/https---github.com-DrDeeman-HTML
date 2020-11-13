@@ -5,7 +5,7 @@ let summar = 0;
       { img: "image/x.jpg", name: "Fantastic Four", count_from: 6, count_to: 4 }, { img: "image/b.jpg", name: "Deadpool", count_from: 7, "count_to": 5 }, { img: "image/c.jpg", name: "Superman", count_from: 8, count_to: 6 }, { img: "image/v.jpg", name: "Batman", count_from: 5, count_to: 4 }, { img: "image/z.jpg", name: "spiderman", count_from: 7, count_to: 4 }
     ];
     let min = Math.ceil(0);
-    let max = Math.floor(4);
+    let max = Math.floor(5);
     let r_z;
     let mas_index = [];
     //Эта функция отвечает за динамическое добавление товара в корзину
