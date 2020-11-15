@@ -188,14 +188,11 @@ input[type="submit"] {
 	align-items: center;
 	border: 1px solid black;
 	justify-content: center;
-	
 }
-
-
 
 .marq {
 	flex-basis: 100%;
-	width:100%;
+	width: 100%;
 }
 
 .news_block {
@@ -203,7 +200,7 @@ input[type="submit"] {
 	flex-wrap: nowrap;
 	justify-content: space-around;
 	flex-basis: 49%;
-	width:49%;
+	width: 49%;
 	margin-bottom: 10px;
 	height: 44%;
 	min-height: 175px;
@@ -213,12 +210,12 @@ input[type="submit"] {
 .news_block img {
 	display: inline;
 	flex-basis: 35%;
-	width:35%;
+	width: 35%;
 }
 
 .stat {
 	flex-basis: 60%;
-	width:60%;
+	width: 60%;
 	text-align: justify;
 }
 
@@ -237,6 +234,7 @@ input[type="submit"] {
 	min-height: 100px;
 	overflow-y: auto;
 	overflow-x: hidden;
+	min-width: 350px;
 }
 
 .popup .close {
@@ -256,11 +254,8 @@ input[type="submit"] {
 	float: left;
 	margin-left: 5px;
 	text-align: left;
-	width: 80%;
-}
-
-.cart_product button {
-	float: right;
+	width: 70%;
+	height: 100%;
 }
 
 .create_div {
@@ -388,28 +383,27 @@ footer h3 {
 	border-radius: 40px;
 	background: -moz-linear-gradient(top, #cdeb8e 0%, #a5c956 100%);
 }
-@media(max-width:850px){
-	.count{
-		align-self:center;
-		flex-direction:column;
-		flex-grow:0;
-		flex-shrink:0;
-		justify-content:center;
+
+@media(max-width:850px) {
+	.count {
+		align-self: center;
+		flex-direction: column;
+		flex-grow: 0;
+		flex-shrink: 0;
+		justify-content: center;
 	}
-	.product{
-		margin-top:20px;
-		margin-bottom:20px;
-		align-self:center;
-		width:300px;
+	.product {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		align-self: center;
+		width: 300px;
 	}
-	.pay{
-		align-self:stretch;
+	.pay {
+		align-self: stretch;
 	}
 	@-moz-document url-prefix() {
-		.pay{
-			height:120px;
+		.pay {
+			height: 120px;
+		}
 	}
-	
-		
-}
 }
